@@ -45,24 +45,6 @@ app.post('/api/action', (req,res) => {
 })
 
 app.post('/api/games', (req,res) =>{
-  body = req.body
-  console.log("Name: " + body.gName)
-  console.log(body.pic)
-  console.log("Beginning post")
-  const storage = multer.diskStorage({
-    destination: function(req,file,cb){
-      cb(null,'uploads')
-    },
-    filename: function(file,cb){
-      console.log(file)
-      x = file.originalname.split(".")
-      cb(null,body.gName +"." + x[x.lenth - 1]);
-    }
-  });
-  const upload = multer({storage:storage})
-  upload.single(body.pic)
-  res.json("wtf bro")
-  console.log("end of post")
 })
 
 app.listen(3000, () => {

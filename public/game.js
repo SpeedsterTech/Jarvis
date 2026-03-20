@@ -1,6 +1,5 @@
 const submit = document.getElementById("submit")
 let gname = document.getElementById("GName")
-let gamepic = document.getElementById("pic")
 let send = {}
 
 submit.addEventListener("click", function newGame(){

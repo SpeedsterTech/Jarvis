@@ -11,8 +11,10 @@
             <a href="#about">About</a>
         </div>
                 <label>Game Name: </label> <input type="text" id="GName"><br>
-                <label>Picture For Game: </label><input type="file" id="pic" /><br>
-                <button id="submit">Submit</button>
+                <form action="/upload" method="post" enctype="multipart/form-data">  
+                    <input type="file" name="file" />  
+                    <input id="submit" type="submit" value="Upload File" />
+                </form>
         <script src="game.js"></script>
     </body>
 </html>
