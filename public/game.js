@@ -4,8 +4,7 @@ let send = {}
 
 submit.addEventListener("click", function newGame(){
  send.gName = gname.value;
- send.pic = gamepic.value;
- request = new Request("/api/games", {
+ request = new Request("/api/game", {
     method: "POST",
     headers: {'Content-Type' : "application/json"},
     body: JSON.stringify(send)

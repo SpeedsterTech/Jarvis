@@ -44,8 +44,29 @@ app.post('/api/action', (req,res) => {
   
 })
 
-app.post('/api/games', (req,res) =>{
-})
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads");
+  },
+  filename: function (req, file, cb) {
+    console.log(file)
+    x = file.originalname.split(".")
+    cb(null,file.fieldname+ "-" +file.originalname +"." + x[x.length-1]);
+  },
+});
 
+const upload = multer({ storage: storage });
+
+app.post('/upload',upload.single("file"), (req,res) => {
+  console.log("lets go")
+  res.json("yippie")
+});
+app.post('/api/game', (req,res) => {
+  fs.readdir('uploads', (err,files) => {
+    files.forEach(file => {
+      console.log(file);
+    });
+  })
+});
 app.listen(3000, () => {
 })
