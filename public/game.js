@@ -1,10 +1,11 @@
 const submit = document.getElementById("submit")
 let gname = document.getElementById("GName")
-let send = {}
+let gpic = document.getElementById("file")
 
 submit.addEventListener("click", function newGame(){
- send.gName = gname.value;
- request = new Request("/api/game", {
+   let send = {}
+   send.name = gname.value
+ const request = new Request("/api/game", {
     method: "POST",
     headers: {'Content-Type' : "application/json"},
     body: JSON.stringify(send)
