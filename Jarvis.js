@@ -65,18 +65,13 @@ app.post('/api/game', (req,res) => {
   fileFound = false
   body = req.body
   console.log(body.name)
-  fs.readdir('uploads', (err,files) => {
-    while(!fileFound)
-    files.forEach(file => {
-      console.log(file);
-      x = file.split(".")
-      if('file' in file){
-        fileFound = true
-        fs.rename(file,body.name + x[x.length-1])
-        console.log("File name changed")
-      }
-    });
-  })
+  /*x =fs.readdir('uploads')
+  for(let i =0; i<x.length;i++){
+    if(x[i].originalname.includes("head")){
+      s = x[i].originalname.split(".")
+      fs.rename('uploads'+ x[i].originalname,body.name + "." + s[s.lenth -1 ])
+    }
+  }*/
 });
 app.listen(3000, () => {
 })
