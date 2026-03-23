@@ -5,7 +5,7 @@ const multer = require('multer');
 const app = express()
 app.use (express.json());
 app.use(express.static('public'));
-
+let newGname = ""
 
 app.post('/api/action', (req,res) => {
   const body = req.body;
@@ -51,30 +51,34 @@ const storage = multer.diskStorage({
   filename: function (req, file, cb) {
     console.log(file)
     x = file.originalname.split(".")
-    cb(null,file.fieldname+ "-" +file.originalname +"." + x[x.length-1]);
+    newGname = file.fieldname+ "-" +file.originalname +"." + x[x.length-1]
+    cb(null,newGname);
+    fs.appendFile('games.csv', newGname + "\n", (err) => {
+      if(err){
+        console.log(err)
+      }
+    })
   },
 });
 
-const upload = multer({ storage: storage });
+const upload = multer({ storage: storage })
 
 app.post('/upload',upload.single("file"), (req,res) => {
+  console.log(req.file)
   console.log("lets go")
-  res.json("yippie")
 });
 app.post('/api/game', (req,res) => {
   fileFound = false
   body = req.body
   console.log(body.name)
-<<<<<<< HEAD
-  /*x =fs.readdir('uploads')
-  for(let i =0; i<x.length;i++){
-    if(x[i].originalname.includes("head")){
-      s = x[i].originalname.split(".")
-      fs.rename('uploads'+ x[i].originalname,body.name + "." + s[s.lenth -1 ])
+  console.log(newGname)
+  fs.appendFile('games.csv',body.name +",", (err) =>{
+    if(err){
+      console.log(err)
+    } else {
+      console.log("Game Logged!")
     }
-  }*/
-=======
->>>>>>> 288f48ca2dac3cc5c902e12d499d1952b905758d
+  })
 });
 app.listen(3000, () => {
 })
