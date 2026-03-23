@@ -5,6 +5,7 @@ const multer = require('multer');
 const app = express()
 app.use (express.json());
 app.use(express.static('public'));
+let newGname = "";
 
 
 app.post('/api/action', (req,res) => {
@@ -51,7 +52,8 @@ const storage = multer.diskStorage({
   filename: function (req, file, cb) {
     console.log(file)
     x = file.originalname.split(".")
-    cb(null,file.fieldname+ "-" +file.originalname +"." + x[x.length-1]);
+    newGname = String(file.fieldname+ "-" +x[0] +"." + x[x.length-1])
+    cb(null,newGname);
   },
 });
 
@@ -65,6 +67,14 @@ app.post('/api/game', (req,res) => {
   fileFound = false
   body = req.body
   console.log(body.name)
+  console.log(newGname)
+  fs.appendFile("game.csv", body.name + ","+ newGname + "\n", (err) => {
+    if(err) {
+      console.log(err);
+    }else{
+      console.log("success");
+    }
+  });
 });
 app.listen(3000, () => {
 })
