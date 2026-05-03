@@ -5,6 +5,7 @@ const multer = require('multer');
 const app = express()
 app.use (express.json());
 app.use(express.static('public'));
+app.use(express.static('uploads'));
 let newGname;
 
 app.post('/api/action', (req,res) => {
@@ -66,7 +67,7 @@ const upload = multer({ storage: storage })
 app.post('/upload',upload.single("file"), (req,res) => {
   newGname=req.file
   console.log("lets go")
-  res.json("Oh Joy!")
+  res.redirect('gameLib.html')
 });
 app.post('/api/game', (req,res) => {
   body = req.body
@@ -80,8 +81,5 @@ app.post('/api/game', (req,res) => {
     }
   })
 });
-app.get('/upload',(req,res) => {
-  res.redirect('public/Index.html')
-})
 app.listen(3000, () => {
 })
