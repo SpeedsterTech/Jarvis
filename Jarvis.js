@@ -81,5 +81,12 @@ app.post('/api/game', (req,res) => {
     }
   })
 });
+
+app.post('/api/gamelib', (req,res) => {
+const body = req.body
+console.log(body)
+res.json("recieved")
+});
+
 app.listen(3000, () => {
 })

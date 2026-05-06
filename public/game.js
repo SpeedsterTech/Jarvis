@@ -7,9 +7,9 @@ submit.addEventListener("click", function newGame(){
    send.name = gname.value
     window.location.href = "/gamelib.html";
  const request = new Request("/api/game", {
-    method: "POST",
-    headers: {'Content-Type' : "application/json"},
-    body: JSON.stringify(send)
+   method: "POST",
+   headers: {'Content-Type' : "application/json"},
+   body: JSON.stringify(send)
    
  })
   
