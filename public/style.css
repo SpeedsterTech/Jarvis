@@ -48,7 +48,8 @@ img {
   border-radius: 5px 5px 0 0;
 }
 
-.PS{
+.playstation::before{
+  content: "Playstation";
   border: 1px solid #182580;
   display: inline-block; 
   border-radius: 20px; 
@@ -58,7 +59,8 @@ img {
   margin:1px;
 }
 
-.NS{
+.nintendo::before{
+  content: 'Nintendo Switch';
   border: 1px solid #e60012;
   display: inline-block; 
   border-radius: 20px; 
@@ -68,7 +70,8 @@ img {
   margin:1px;
 }
 
-.Xbox{
+.xbox::before{
+  content: "Xbox";
   border: 1px solid #107C11;
   display: inline-block; 
   border-radius: 20px; 
@@ -78,7 +81,8 @@ img {
   margin:1px;
 }
 
-.PC{
+.steam::before{  
+  content: "Steam";
   border: 1px solid #2a475e;
   display: inline-block; 
   border-radius: 20px; 

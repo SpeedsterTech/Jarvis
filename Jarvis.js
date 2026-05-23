@@ -50,7 +50,7 @@ const storage = multer.diskStorage({
     cb(null, "uploads");
   },
   filename: function (req, file, cb) {
-    //console.log(file)
+    console.log(file)
     x = file.originalname.split(".")
     newGname = file.fieldname+ "-" +file.originalname +"." + x[x.length-1]
     cb(null,newGname);
@@ -84,8 +84,18 @@ app.post('/api/game', (req,res) => {
 
 app.post('/api/gamelib', (req,res) => {
 const body = req.body
+let games = [];
 console.log(body)
-res.json("recieved")
+fs.readFile('games.csv', 'utf8', (er, data) => {
+  console.log(data)
+  x = data.split("\n")
+  for (let i = 0; i < x.length-1; i++) {
+    let c = x[i].split(",");
+      games.push(c);
+  }
+  console.log(games)
+  res.json(games)
+})
 });
 
 app.listen(3000, () => {
