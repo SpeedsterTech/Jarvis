@@ -71,7 +71,7 @@ app.post('/upload',upload.single("file"), (req,res) => {
 });
 app.post('/api/game', (req,res) => {
   body = req.body
-  console.log(body.name)
+  console.log(body)
   console.log(newGname)
   fs.appendFile('games.csv',body.name +",", (err) =>{
     if(err){
@@ -80,6 +80,42 @@ app.post('/api/game', (req,res) => {
       console.log("Game Logged!")
     }
   })
+  if (body.PS == 'on'){
+    fs.appendFile('games.csv',"Playstation,", (err) =>{
+    if(err){
+      console.log(err)
+    } else {
+      console.log("Game Logged!")
+    }
+    })
+  }
+  if(body.X == 'on'){
+    fs.appendFile('games.csv',"Xbox,", (err) =>{
+    if(err){
+      console.log(err)
+    } else {
+      console.log("Game Logged!")
+    }
+    })
+  }
+  if(body.NS == 'on'){
+    fs.appendFile('games.csv',"Nintendo,", (err) =>{
+    if(err){
+      console.log(err)
+    } else {
+      console.log("Game Logged!")
+    }
+    })
+  }
+  if(body.S == 'on'){
+    fs.appendFile('games.csv',"Steam,", (err) =>{
+    if(err){
+      console.log(err)
+    } else {
+      console.log("Game Logged!")
+    }
+  })
+  }
 });
 
 app.post('/api/gamelib', (req,res) => {

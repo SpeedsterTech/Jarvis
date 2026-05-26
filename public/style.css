@@ -95,3 +95,23 @@ img {
 .card-container{
   display: flex;
 }
+
+.console{
+  display: flex;
+}
+
+.picTitle{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.console-container{
+  display: flex;
+  text-align: center;
+}
+
+.con-container{
+  display: flex;
+  flex-wrap: wrap;
+}

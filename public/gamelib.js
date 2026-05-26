@@ -15,7 +15,7 @@ const response = fetch(request).then((responce) => responce.json()).then(data =>
         node.appendChild(cl)
 
         img = document.createElement("img");
-        img.src = data[i][1]
+        img.src = data[i][data[i].length -1]
         img.width = 200;
         img.height = 200;
         cl.appendChild(img)
@@ -29,11 +29,15 @@ const response = fetch(request).then((responce) => responce.json()).then(data =>
         cd.append(desc)
 
         cl.appendChild(cd)
+
+        co = document.createElement("div")
+        co.className = "con-container"
+        cl.appendChild(co)
         if(data[i].length > 2){
-            for(let j =2; j < data[i].length; j++){
+            for(let j =1; j < data[i].length-1; j++){
                 cons = document.createElement("div")
                 cons.className = data[i][j].toLowerCase()
-                cl.appendChild(cons)
+                co.appendChild(cons)
 
             }
         }

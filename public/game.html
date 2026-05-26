@@ -11,9 +11,40 @@
             <a href="#about">About</a>
         </div>
                 <label>Game Name: </label> <input type="text" id="GName"><br>
+                <div class = "console-container">
+                    <div class = "console">
+                        <div class = "picTitle">
+                            <img src="assets/PSLogo.png" height="100" width="100">
+                            <label>Playstation</label>
+                        </div>
+                        <input type="checkbox" id ="PS">
+                    </div>
+                    <div class="console">
+                        <div class = "picTitle">
+                            <img src="assets/Xbox_one_logo.png" height="100" width="100">
+                            <label>Xbox</label>
+                        </div>
+                        <input type="checkbox" id = "Xbox">
+                    </div>
+                    <div class="console">
+                        <div class = "picTitle">
+                            <img src="assets/Nintendo_Switch_logo.png" height="100" width="100">
+                            <label>Nintendo Switch</label>
+                        </div>
+                        <input type="checkbox" id = "NS">
+                    </div>
+                    <div class="console">
+                        <div class = "picTitle">
+                            <img src="assets/Steam.png" height="100" width="100">
+                            <label>Steam</label>
+                        </div>
+                        <input type="checkbox" id = "Steam">
+                    </div>
+                </div>
+
                 <form action="/upload" method="post" enctype="multipart/form-data">
-                    <input id="file" type="file" name="file" />  
-                    <input  id="submit" type="submit" value="Upload File" />
+                    <input id="file" type="file" name="file" /><Br> 
+                    <input  id="submit" type="submit" value="Upload Game" />
                 </form>
         <script src="game.js"></script>
     </body>
