@@ -7,6 +7,7 @@ app.use (express.json());
 app.use(express.static('public'));
 app.use(express.static('uploads'));
 let newGname;
+let gpage;
 
 app.post('/api/action', (req,res) => {
   const body = req.body;
@@ -119,19 +120,21 @@ app.post('/api/game', (req,res) => {
 });
 
 app.post('/api/gamelib', (req,res) => {
-const body = req.body
-let games = [];
-console.log(body)
-fs.readFile('games.csv', 'utf8', (er, data) => {
-  console.log(data)
-  x = data.split("\n")
-  for (let i = 0; i < x.length-1; i++) {
-    let c = x[i].split(",");
-      games.push(c);
-  }
-  console.log(games)
-  res.json(games)
-})
+  const body = req.body
+  let games = [];
+  fs.readFile('games.csv', 'utf8', (er, data) => {
+    x = data.split("\n")
+    for (let i = 0; i < x.length-1; i++) {
+      let c = x[i].split(",");
+        games.push(c);
+    }
+    res.json(games)
+  })
+});
+
+app.post('/api/gamepage', (req,res) => {
+  const body = req.body
+  console.log(req.body)
 });
 
 app.listen(3000, () => {

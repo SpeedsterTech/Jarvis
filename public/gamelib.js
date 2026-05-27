@@ -10,10 +10,23 @@ request = new Request("/api/gamelib",{
 const response = fetch(request).then((responce) => responce.json()).then(data => {
     console.log(data);
     for(let i =0; i< data.length; i++){
+        buttName = "CardButton"+ String(i)
+        butt = document.createElement("button")
+        butt.id = buttName
+        node.appendChild(butt)
+
+            let CardButton = document.getElementById(buttName)
+            CardButton.addEventListener("click", function butclick() {
+                name  = CardButton.children[0].children[1].children[0].innerHTML
+                console.log("Card Clicked")
+                console.log(name)
+                clickgame(name)
+            })
+
         cl = document.createElement("div");
         cl.className = "card"
-        node.appendChild(cl)
-
+        butt.appendChild(cl)
+        
         img = document.createElement("img");
         img.src = data[i][data[i].length -1]
         img.width = 200;

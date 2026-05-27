@@ -41,7 +41,7 @@
 
 /* Add some padding inside the card container */
 .card-Desc {
-  padding: 2px 16px;
+  padding: 2px 2px;
 }
 
 img {
@@ -56,7 +56,7 @@ img {
   background-color: #182580;
   color: white;
   padding: 2px;
-  margin:1px;
+  margin:5px;
 }
 
 .nintendo::before{
@@ -67,7 +67,7 @@ img {
   background-color: #e60012;
   color: white;
   padding: 2px;
-  margin:1px;
+  margin:5px;
 }
 
 .xbox::before{
@@ -78,7 +78,7 @@ img {
   background-color: #107c11;
   color: white;
   padding: 2px;
-  margin:1px;
+  margin:5px;
 }
 
 .steam::before{  
@@ -89,7 +89,7 @@ img {
   background-color: #2a475e;
   color: white;
   padding: 2px;
-  margin:1px;
+  margin:5px;
 }
 
 .card-container{
