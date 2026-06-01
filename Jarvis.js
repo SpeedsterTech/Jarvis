@@ -7,7 +7,6 @@ app.use (express.json());
 app.use(express.static('public'));
 app.use(express.static('uploads'));
 let newGname;
-let gpage;
 
 app.post('/api/action', (req,res) => {
   const body = req.body;
@@ -132,7 +131,8 @@ app.post('/api/gamelib', (req,res) => {
   })
 });
 
-app.post('/api/gamepage', (req,res) => {
+app.post('/api/gamesPage', (req,res) => {
+  console.log("recieved a thing for a game page")
   const body = req.body
   console.log(req.body)
 });

@@ -20,7 +20,14 @@ const response = fetch(request).then((responce) => responce.json()).then(data =>
                 name  = CardButton.children[0].children[1].children[0].innerHTML
                 console.log("Card Clicked")
                 console.log(name)
-                clickgame(name)
+                let send = {}
+                send.name = name
+                request = new Request('api/gamesPage', {
+                    method: "POST",
+                    headers: {'Content-Type' : "application/json"},
+                    body: JSON.stringify(send)
+                })
+                console.log("sent")
             })
 
         cl = document.createElement("div");

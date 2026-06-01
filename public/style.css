@@ -31,6 +31,7 @@
   transition: 0.3s;
   border-radius: 5px; /* 5px rounded corners */
   width: 200px;
+  height: 300;
   margin: 5px;
 }
 
@@ -42,6 +43,9 @@
 /* Add some padding inside the card container */
 .card-Desc {
   padding: 2px 2px;
+  height: 25px;
+  width: 200;
+  margin: 5px;
 }
 
 img {
