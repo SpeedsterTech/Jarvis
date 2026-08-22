@@ -138,6 +138,7 @@ app.post('/api/gamesPage', (req,res) => {
 });
 
 app.listen(3000, () => {
-   const clientIp = req.ip
-   console.log(`Server is running on port 3000. Client IP: ${clientIp}`);
+   const addressInfo = server.address();
+    console.log(`Server is running on port: ${addressInfo.port}`);
+    console.log(`Bound Address: ${addressInfo.address}`); 
 })
