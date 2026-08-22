@@ -8,10 +8,10 @@ let NS = document.getElementById("NS")
 submit.addEventListener("click", function newGame(){
    let send = {}
    send.name = gname.value
-   send.PS = PS.value
-   send.X = X.value
-   send.S = S.value
-   send.NS = NS.value
+   send.PS = PS.checked
+   send.X = X.checked
+   send.S = S.checked
+   send.NS = NS.checked
     window.location.href = "/gamelib.html";
  const request = new Request("/api/game", {
    method: "POST",

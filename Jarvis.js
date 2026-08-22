@@ -77,42 +77,42 @@ app.post('/api/game', (req,res) => {
     if(err){
       console.log(err)
     } else {
-      console.log("Game Logged!")
+      console.log("Name Logged!")
     }
   })
-  if (body.PS == 'on'){
+  if (body.PS){
     fs.appendFile('games.csv',"Playstation,", (err) =>{
     if(err){
       console.log(err)
     } else {
-      console.log("Game Logged!")
+      console.log("PS Logged!")
     }
     })
   }
-  if(body.X == 'on'){
+  if(body.X){
     fs.appendFile('games.csv',"Xbox,", (err) =>{
     if(err){
       console.log(err)
     } else {
-      console.log("Game Logged!")
+      console.log("Xbox Logged!")
     }
     })
   }
-  if(body.NS == 'on'){
+  if(body.NS){
     fs.appendFile('games.csv',"Nintendo,", (err) =>{
     if(err){
       console.log(err)
     } else {
-      console.log("Game Logged!")
+      console.log("Switch Logged!")
     }
     })
   }
-  if(body.S == 'on'){
+  if(body.S){
     fs.appendFile('games.csv',"Steam,", (err) =>{
     if(err){
       console.log(err)
     } else {
-      console.log("Game Logged!")
+      console.log("Steam Logged!")
     }
   })
   }
@@ -138,4 +138,6 @@ app.post('/api/gamesPage', (req,res) => {
 });
 
 app.listen(3000, () => {
+   const clientIp = req.ip
+   console.log(`Server is running on port 3000. Client IP: ${clientIp}`);
 })
