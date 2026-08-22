@@ -138,7 +138,4 @@ app.post('/api/gamesPage', (req,res) => {
 });
 
 app.listen(3000, () => {
-   const addressInfo = app.address();
-    console.log(`Server is running on port: ${addressInfo.port}`);
-    console.log(`Bound Address: ${addressInfo.address}`); 
 })
